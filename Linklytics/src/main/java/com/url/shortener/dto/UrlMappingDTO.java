@@ -1,5 +1,6 @@
 package com.url.shortener.dto;
 
+import com.url.shortener.models.User;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -11,5 +12,5 @@ public class UrlMappingDTO {
     private String shortUrl;
     private int clickCount;
     private LocalDateTime createdDate;
-    private String username;
+    private User user;
 }
