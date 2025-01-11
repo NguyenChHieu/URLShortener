@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -32,5 +33,13 @@ public class UrlMappingController {
         UrlMappingDTO urlMappingDTO = urlMappingService.createShortUrl(originalUrl, user);
 
         return ResponseEntity.ok(urlMappingDTO);
+    }
+
+    @PostMapping("/myurls")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<List<UrlMappingDTO>> getUserUrls(Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        List<UrlMappingDTO> urls = urlMappingService.getUserUrls(user);
+        return ResponseEntity.ok(urls);
     }
 }
