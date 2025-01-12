@@ -1,6 +1,5 @@
 package com.url.shortener.service;
 
-import com.url.shortener.dto.ClickEventDTO;
 import com.url.shortener.dto.UrlMappingDTO;
 import com.url.shortener.models.UrlMapping;
 import org.springframework.stereotype.Component;
@@ -18,10 +17,4 @@ public class Mappers {
         return urlMappingDTO;
     }
 
-    public ClickEventDTO convertToClickEventDto(UrlMapping urlMapping) {
-        ClickEventDTO clickEventDTO = new ClickEventDTO();
-        clickEventDTO.setClickDate(urlMapping.getCreatedDate().toLocalDate());
-        clickEventDTO.setCount((long) urlMapping.getClickCount());
-        return clickEventDTO;
-    }
 }

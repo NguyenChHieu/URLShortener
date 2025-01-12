@@ -1,8 +1,10 @@
 package com.url.shortener.service;
 
+import com.url.shortener.dto.ClickEventDTO;
 import com.url.shortener.dto.UrlMappingDTO;
 import com.url.shortener.models.UrlMapping;
 import com.url.shortener.models.User;
+import com.url.shortener.repository.ClickEventRepository;
 import com.url.shortener.repository.UrlMappingRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,12 +12,15 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class UrlMappingService {
 
+    private final ClickEventRepository clickEventRepository;
     private UrlMappingRepository urlMappingRepository;
+    private Mappers mappers;
 
     public UrlMappingDTO createShortUrl(String originalUrl, User user) {
         String shortUrl = generateShortUrl();
@@ -26,19 +31,10 @@ public class UrlMappingService {
         urlMapping.setCreatedDate(LocalDateTime.now());
 
         UrlMapping savedUrlMapping = urlMappingRepository.save(urlMapping);
-        return convertToDto(savedUrlMapping);
+        return mappers.convertToUrlMappingDto(savedUrlMapping);
     }
 
-    private UrlMappingDTO convertToDto(UrlMapping urlMapping) {
-        UrlMappingDTO urlMappingDTO = new UrlMappingDTO();
-        urlMappingDTO.setId(urlMapping.getId());
-        urlMappingDTO.setOriginalUrl(urlMapping.getOriginalUrl());
-        urlMappingDTO.setShortUrl(urlMapping.getShortUrl());
-        urlMappingDTO.setClickCount(urlMapping.getClickCount());
-        urlMappingDTO.setCreatedDate(urlMapping.getCreatedDate());
-        urlMappingDTO.setUsername(urlMapping.getUser().getUsername());
-        return urlMappingDTO;
-    }
+
 
     private String generateShortUrl() {
         String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -56,7 +52,25 @@ public class UrlMappingService {
     public List<UrlMappingDTO> getUserUrls(User user) {
         return urlMappingRepository.findByUser(user)
                 .stream()
-                .map(this::convertToDto)
+                .map(mappers::convertToUrlMappingDto)
                 .toList();
+    }
+
+    public List<ClickEventDTO> getClickEventsByDate(String shortUrl, LocalDateTime start, LocalDateTime end) {
+        UrlMapping urlMapping = urlMappingRepository.findByShortUrl(shortUrl);
+        if (urlMapping != null){
+            return clickEventRepository.findByUrlMappingAndClickDateBetween(urlMapping, start, end)
+                    .stream().collect(Collectors.groupingBy(
+                            click -> click.getClickDate().toLocalDate(), Collectors.counting()))
+                    .entrySet().stream()
+                    .map(entry -> {
+                        ClickEventDTO clickEventDTO = new ClickEventDTO();
+                        clickEventDTO.setClickDate(entry.getKey());
+                        clickEventDTO.setCount(entry.getValue());
+                        return clickEventDTO;
+                    }).toList();
+        }
+        return null;
+
     }
 }
