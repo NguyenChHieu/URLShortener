@@ -79,7 +79,7 @@ const LandingPage = () => {
         </div>
      </div>
      <div className="sm:pt-12 pt-7">
-        <p.motion
+        <motion.p
             initial={{opacity: 0, y: 50}}
             whileInView={{
                 opacity: 1,
@@ -90,7 +90,7 @@ const LandingPage = () => {
         
             className="text-slate-800 font-roboto font-bold lg:w-[60%]  md:w-[70%] sm:w-[80%] mx-auto text-3xl text-center">
             Trusted by individuals and teams at the world best companies{" "}
-        </p.motion>
+        </motion.p>
 
         <div className="pt-4 pb-7 grid lg:gap-7 gap-4 xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-4">
           <Card
