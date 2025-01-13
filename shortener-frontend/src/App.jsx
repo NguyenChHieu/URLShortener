@@ -1,11 +1,17 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import LandingPage from './components/LandingPage'
+import AboutPage from './components/AboutPage'
 
 function App() {
   return (
     <>
-      <h1 class="text-3xl font-roboto underline">
-        Hello world!
-      </h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LandingPage/>}/>
+          <Route path='/about' element={<AboutPage/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
