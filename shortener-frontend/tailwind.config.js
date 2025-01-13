@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "custom-gradient": "linear-gradient(to right, #3b82f6, #9333ea)", // equivalent to from-blue-500 to-purple-600
-        "custom-gradient-2": "linear-gradient(to left, #3b82f6, #f43f5e)",
+        "custom-gradient": "linear-gradient(to right, #1e3a8a, #9333ea)", // equivalent to from-blue-500 to-purple-600
+        "custom-gradient-2": "linear-gradient(to left, #9333ea, #1e3a8a)",
         "card-gradient": "linear-gradient(to right, #38b2ac, #4299e1)",
       },
       colors: {
