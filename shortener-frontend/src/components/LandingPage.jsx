@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
+import {motion} from 'framer-motion'
 
 const LandingPage = () => {
 
@@ -9,13 +11,24 @@ const LandingPage = () => {
   Generate short, memorable links with ease using URLShortener’s intuitive interface. \
   Share URLs effortlessly across platforms.";
 
+  const navigate = useNavigate()
+  const dashboardNavigateHandler = () => {}
+
   return (
     <div className="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
      <div className="lg:flex-row flex-col    lg:py-5   pt-16   lg:gap-10 gap-8 flex justify-between items-center">
       <div className=" flex-1">
-        <h1 className="font-bold font-roboto text-slate-800 md:text-5xl sm:text-4xl text-3xl   md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full">
-            URLShortener - simplified your URLs!
-        </h1>
+        <motion.h1 
+            initial={{ opacity: 0, y: -80 }} // default the h1 will be 80 px out
+            whileInView={{ // set the h1 to correct pos
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{ once: true }} // animate only the first time
+            transition={{ duration: 0.9 }} 
+            className="font-bold font-roboto text-slate-800 md:text-5xl sm:text-4xl text-3xl   md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full">
+            URLShortener - simplified URLs!
+        </motion.h1>
         <p className="text-slate-700 text-sm my-5">
             URLShortener streamlines the process of URL shortening, making sharing
             links effortless and efficient. With its user-friendly interface,
@@ -24,17 +37,41 @@ const LandingPage = () => {
         </p>
 
         <div className="flex items-center gap-3">
-            <button className="bg-custom-gradient  w-40 text-white rounded-md  py-2">
+            <motion.button 
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{
+                opacity: 1,
+                y: 0,
+                }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="bg-custom-gradient  w-40 text-white rounded-md  py-2">
                 Manage Links
-            </button>
+            </motion.button>
 
-            <button className="border-btnColor border w-40 text-btnColor rounded-md  py-2 ">
+            <motion.button 
+                initial={{opacity: 0, y: 80}}
+                whileInView={{
+                    opacity: 1,
+                    y: 0
+                }}
+                viewport={{once: true}}
+                transition={{duration: 0.9}}
+                onClick={dashboardNavigateHandler}
+                className="border-btnColor border w-40 text-btnColor rounded-md  py-2 ">
                Shorten your URL
-            </button>
+            </motion.button>
         </div>
       </div>
       <div className="   flex-1 flex   justify-center w-full">
-            <img 
+            <motion.img 
+            initial={{opacity: 0, y: 0}}
+            whileInView={{
+                opacity:1,
+            }}
+            viewport={{once:true}}
+            transition={{duration:0.9}}
+
             className="sm:w-[480px] w-[400px] object-cover rounded-md"
             src="/images/icons.jpg"
             alt=""
@@ -43,6 +80,14 @@ const LandingPage = () => {
      </div>
      <div className="sm:pt-12 pt-7">
         <p 
+            initial={{opacity: 0, y: 50}}
+            whileInView={{
+                opacity: 1,
+                y: 0
+            }}
+            viewport={{once:true}}
+            transition={{duration: 0.9}}
+        
             className="text-slate-800 font-roboto font-bold lg:w-[60%]  md:w-[70%] sm:w-[80%] mx-auto text-3xl text-center">
             Trusted by individuals and teams at the world best companies{" "}
         </p>
