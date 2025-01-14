@@ -23,7 +23,7 @@ public class AuthController {
         return ResponseEntity.ok(userService.authenticateUser(loginRequest));
     }
 
-        @PostMapping("/public/register")
+    @PostMapping("/public/register")
     public ResponseEntity<?> registerUser(@RequestBody RegisterRequestDTO registerRequest) {
         User user = new User();
         user.setUsername(registerRequest.getUsername());
