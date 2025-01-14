@@ -4,10 +4,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../api/api";
+import {useStoreContext } from "../context/ContextApi";
 
 const LoginPage = () => {
     const navigate = useNavigate()
     const [loader,setLoader] = useState(false)
+    const {setToken} = useStoreContext();
 
     const {
         register,
@@ -32,6 +34,7 @@ const LoginPage = () => {
             )
             // Store the token in local storage
             console.log("Token received: ", response.token)
+            setToken(response.token)
             localStorage.setItem("JWT_TOKEN", JSON.stringify(response.token))
             toast.success("Login Successful!")
 

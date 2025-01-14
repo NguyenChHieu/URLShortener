@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import {motion} from 'framer-motion'
+import { useStoreContext } from "../context/ContextApi";
 
 const LandingPage = () => {
 
@@ -13,6 +14,8 @@ const LandingPage = () => {
 
   const navigate = useNavigate()
   const dashboardNavigateHandler = () => {}
+  const {token} = useStoreContext();
+  console.log("Token from Landing Page: " + token)
 
   return (
     <div className="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
