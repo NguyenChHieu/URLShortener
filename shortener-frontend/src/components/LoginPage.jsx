@@ -39,7 +39,7 @@ const LoginPage = () => {
             toast.success("Login Successful!")
 
             reset()
-            navigate("/")
+            navigate("/dashboard")
         } catch (error){
             console.log(error)
             toast.error("Login Failed!")
