@@ -34,6 +34,7 @@ export const useFetchTotalClicks = (token, onError) => {
                     clickDate: key,
                     count: data.data[key]
                 }))
+                return convertToArr
             },
                 // FINAL:
                 //   [
