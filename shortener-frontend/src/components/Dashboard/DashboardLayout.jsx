@@ -2,15 +2,15 @@ import Graph from "./Graph"
 import {dummyData} from '../dummyData/data'
 import { useStoreContext } from "../../context/ContextApi"
 import { useFetchMyShortUrls, useFetchTotalClicks } from "../../hooks/useQuery"
-import { data } from "react-router-dom"
+import { data, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import ShortenPopUp from "./ShortenPopUp"
 import { FaLink } from "react-icons/fa"
 import ShortenUrlList from "./ShortenUrlList"
 
 const DashboardLayout = () => {
-  // const refetch = false
   const {token} = useStoreContext()
+  const navigate = useNavigate()
   const [shortenPopUp, setShortenPopUp] = useState(false)
 
   // console.log(useFetchTotalClicks(token, onError));
@@ -20,8 +20,7 @@ const DashboardLayout = () => {
   const {isLoading: loader, data: totalClicks} = useFetchTotalClicks(token, onError);
 
   function onError(){
-    console.log("Error")
-
+    navigate("/error")
   }
 
   return (
