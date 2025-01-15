@@ -5,7 +5,7 @@ export const useFetchTotalClicks = (token, onError) => {
     // fst param: query key - identify the query in this cache
     // 2nd param: async func - make an api call
     // 3rd param: options object - 
-    return useQuery("", 
+    return useQuery("url-totalclick", 
         async () => {
             return await api.get(
                 "/api/urls/analytics/totalClicks?startDate=2025-01-01&endDate=2025-12-31", // fetch whole year
@@ -47,6 +47,31 @@ export const useFetchTotalClicks = (token, onError) => {
             /*duration in ms in which query is considered to be fresh, 
             RQ will not refetch it automatically in background 
             even if its accessed/triggered */
+            staleTime: 5000 
+        })
+}
+
+export const useFetchMyShortUrls = (token, onError) => {
+    return useQuery("my-shortenurls", 
+        async () => {
+            return await api.get(
+                "/api/urls/myurls",
+            {
+                headers:{
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: "Bearer "+ token,
+                },
+            });
+        }, 
+        {
+            select: (data) => {
+                const sortedData = data.data.sort(
+                    (a,b) => new Date(b.createdDate) - new Date(a.createdDate)
+                )
+                return sortedData
+            },
+            onError,
             staleTime: 5000 
         })
 }
