@@ -8,6 +8,8 @@ import { MdAnalytics, MdOutlineAdsClick } from "react-icons/md"
 import { useNavigate } from "react-router-dom"
 import { useStoreContext } from "../../context/ContextApi"
 import api from "../../api/api"
+import { Audio, ProgressBar } from "react-loader-spinner"
+import Graph from './Graph';
 
 const URLListItem = ({originalUrl, shortUrl, clickCount, createdDate}) => {
     const navigate = useNavigate()
@@ -130,8 +132,37 @@ const URLListItem = ({originalUrl, shortUrl, clickCount, createdDate}) => {
         {/* // if "analyticsHook" toggled, show this fragment else hidden */}
         <div className={`${
             analyticsHook ? "flex" : "hidden"
-        } max-h-96 sm:mt-0 mt-5 min-h-96 relative border-t-2 w-[100%] overflow-hidden`}>
-            {loader ? (<div></div>) : (<div></div>)}
+        } max-h-96 sm:mt-0 mt-5 min-h-96 relative  border-t-2 w-[100%] overflow-hidden`}>
+            {loader ? (
+                <div className="min-h-[calc(450px-140px)] flex justify-center items-center w-full">
+                    <div className="flex flex-col items-center gap-1">
+                        <ProgressBar
+                            visible={true}
+                            height="50"
+                            width="50"
+                            ariaLabel="hourglass-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            colors={['#306cce', '#72a1ed']}
+                            />
+                            <p className="text-slate-800">Getting the URLs..</p>
+                    </div>
+                </div>
+            ) : (
+                <>
+                    {analData.length === 0 && 
+                    (<div className="absolute flex flex-col  justify-center sm:items-center items-end  w-full left-0 top-0 bottom-0 right-0 m-auto">
+                        <h1 className=" text-slate-800 font-sans sm:text-2xl text-[15px] font-bold mb-1">
+                            No clicks found :(
+                        </h1>
+                        <h3 className="sm:w-96 w-[90%] sm:ml-0 pl-6 text-center sm:text-lg text-[12px] text-slate-600 ">
+                            Share your link with your network to see engagements!
+                        </h3>
+                    </div>
+                    )}
+                    <Graph graphData={analData}/>
+                </>
+            )}
         </div>
      </React.Fragment>
     </div>
