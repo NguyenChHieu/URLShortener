@@ -1,4 +1,3 @@
-import { data } from "autoprefixer"
 import dayjs from "dayjs"
 import React, { useEffect, useState } from "react"
 import CopyToClipboard from "react-copy-to-clipboard"
