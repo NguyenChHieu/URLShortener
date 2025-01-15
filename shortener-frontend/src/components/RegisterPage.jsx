@@ -81,7 +81,7 @@ const RegisterPage = () => {
                         label="Password"
                         required
                         id="password"
-                        type='text'
+                        type='password'
                         message="*Password is required"
                         placeholder="Shhhh..."
                         register={register}
