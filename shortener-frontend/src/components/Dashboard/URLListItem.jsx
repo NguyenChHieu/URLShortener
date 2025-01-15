@@ -1,23 +1,59 @@
+import { data } from "autoprefixer"
 import dayjs from "dayjs"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import CopyToClipboard from "react-copy-to-clipboard"
 import { FaExternalLinkAlt, FaRegCalendarAlt } from "react-icons/fa"
 import { IoCopy } from "react-icons/io5"
 import { LiaCheckSolid } from "react-icons/lia"
 import { MdAnalytics, MdOutlineAdsClick } from "react-icons/md"
+import { useNavigate } from "react-router-dom"
+import { useStoreContext } from "../../context/ContextApi"
+import api from "../../api/api"
 
 const URLListItem = ({originalUrl, shortUrl, clickCount, createdDate}) => {
+    const navigate = useNavigate()
+    const {token} = useStoreContext()
     const subDomain = import.meta.env.VITE_REACT_SUBDOMAIN.replace(/^https?:\/\//,"")
     const [loader, setLoader] = useState(false)
     const [isCopied, setIsCopied] = useState(false)
     const [analyticsHook, setAnalyticsHook] = useState(false)
     const [selectedUrl, setSelectedUrl] = useState("")
+    const [analData, setAnalData] = useState([])
     const analyticsHandler = () => {
         if (!analyticsHook){
             setSelectedUrl(shortUrl);
         }
         setAnalyticsHook(!analyticsHook)
     }
+
+    const fetchShortUrl = async () => {
+        setLoader(true)
+        try {
+            const {data} = await api.get(`/api/urls/analytics/${selectedUrl}?startDate=2025-01-01T00:00:00&endDate=2025-12-31T23:59:59`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        Authorization: "Bearer " + token,
+                    },
+                });
+            setAnalData(data)
+            setSelectedUrl("")
+
+            console.log(data)
+        } catch (error){
+            navigate("/error")
+            console.log(error)
+        } finally {
+            setLoader(false)
+        }
+    }
+
+    useEffect(() => {
+        if (selectedUrl){
+            fetchShortUrl()
+        }
+    }, [selectedUrl])
 
   return (
     <div className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}>
