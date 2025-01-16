@@ -54,7 +54,8 @@ const LandingPage = () => {
                 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="bg-custom-gradient  w-40 text-white rounded-md  py-2">
+                onClick={dashboardNavigateHandler}
+                className="bg-custom-gradient  w-40 text-white rounded-md  py-2 hover:bg-opacity-90">
                 Manage Links
             </motion.button>
 
@@ -67,7 +68,7 @@ const LandingPage = () => {
                 viewport={{once: true}}
                 transition={{duration: 0.9}}
                 onClick={dashboardNavigateHandler}
-                className="border-btnColor border w-40 text-btnColor rounded-md  py-2 ">
+                className="border-btnColor border w-40 text-btnColor rounded-md  py-2 hover:bg-opacity-90">
                Shorten your URL
             </motion.button>
         </div>
