@@ -5,7 +5,7 @@ import { FaExternalLinkAlt, FaRegCalendarAlt } from "react-icons/fa"
 import { IoCopy } from "react-icons/io5"
 import { LiaCheckSolid } from "react-icons/lia"
 import { MdAnalytics, MdOutlineAdsClick } from "react-icons/md"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useStoreContext } from "../../context/ContextApi"
 import api from "../../api/api"
 import { Audio, ProgressBar } from "react-loader-spinner"
@@ -15,6 +15,7 @@ const URLListItem = ({originalUrl, shortUrl, clickCount, createdDate}) => {
     const navigate = useNavigate()
     const {token} = useStoreContext()
     const subDomain = import.meta.env.VITE_REACT_SUBDOMAIN.replace(/^https?:\/\//,"")
+    // const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(/^https?:\/\//,"")
     const [loader, setLoader] = useState(false)
     const [isCopied, setIsCopied] = useState(false)
     const [analyticsHook, setAnalyticsHook] = useState(false)
@@ -67,6 +68,14 @@ const URLListItem = ({originalUrl, shortUrl, clickCount, createdDate}) => {
                 className=" text-[17px] font-sans font-[600] text-linkColor">
                 {subDomain + "/" + `${shortUrl}`}
             </a>
+
+            {/* <Link
+                target="_blank"
+                className=" text-[17px] font-sans font-[600] text-linkColor"
+                to={import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`}>
+                {subDomain + "/s/" + `${shortUrl}`}
+            </Link> */}
+
             <FaExternalLinkAlt className="text-linkColor"/>
         </div>
 
@@ -106,6 +115,9 @@ const URLListItem = ({originalUrl, shortUrl, clickCount, createdDate}) => {
             <CopyToClipboard
                 onCopy={() => setIsCopied(true)}
                 text={`${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`} 
+
+                // text={`${import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`}`}
+
             >
                 <div className="flex cursor-pointer gap-1 items-center bg-btnColor py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white">
                     <button className="">
