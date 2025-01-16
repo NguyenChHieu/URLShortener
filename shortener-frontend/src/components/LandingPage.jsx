@@ -17,9 +17,8 @@ const LandingPage = () => {
     if (token) {
       navigate("/dashboard")
     }
-    else {
-      navigate("/login")
-    }
+    else navigate("/login");
+    
   }
   const {token} = useStoreContext();
   console.log("Token from Landing Page: " + token)
