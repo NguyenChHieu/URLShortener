@@ -13,7 +13,14 @@ const LandingPage = () => {
   Share URLs effortlessly across platforms.";
 
   const navigate = useNavigate()
-  const dashboardNavigateHandler = () => {}
+  const dashboardNavigateHandler = () => {
+    if (token) {
+      navigate("/dashboard")
+    }
+    else {
+      navigate("/login")
+    }
+  }
   const {token} = useStoreContext();
   console.log("Token from Landing Page: " + token)
 
