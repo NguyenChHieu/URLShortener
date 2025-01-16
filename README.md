@@ -3,4 +3,4 @@ Spring Boot, Vite + React.js, JWT, TailwindCSS, React icons, React Motions, Axio
 Production: MySQL local
 Deployment: AWS on neon.tech
 
-- Dockerized Backend, deployed on render.com
+- Dockerized Backend, deployed on render.com (first time live takes 6 mins)
