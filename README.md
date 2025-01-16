@@ -4,3 +4,4 @@ Production: MySQL local
 Deployment: AWS on neon.tech
 
 - Dockerized Backend, deployed on render.com (first time live takes 6 mins)
+- Deploy Frontend on Netlify 
