@@ -1,7 +1,6 @@
-# 🚀 URLShortener  
+# 🚀 URLShortener - [https://henryngg.shop/](https://henryngg.shop/)  
 ### **A Modern URL Shortener with Analytics and Profiles**  
-**Link:** [https://henryngg.shop/](https://henryngg.shop/)  
-
+ 
 ---
 
 ## 🔗 **Features**  
