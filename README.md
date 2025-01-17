@@ -3,6 +3,7 @@
 
 ![image](https://github.com/user-attachments/assets/40fabd50-a2e5-4d8e-9f4d-e7f44c7cb418)
 
+📊 **Turn links into insights—check it out now! [Have a look!](https://henryngg.shop/)**
 ---
 
 ## 🔗 **Features**  
@@ -12,7 +13,7 @@
 
 ---
 
-📊 **Turn links into insights—check it out now! [Have a look!](https://henryngg.shop/)**
+
 
 ---
 
