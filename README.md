@@ -1,19 +1,16 @@
-# 🚀 URLShortener - [Have a look!](https://henryngg.shop/)  
+# 🚀 URLShortener - 
 ### **A Modern URL Shortener with Analytics**  
- 
+
 ---
 
 ## 🔗 **Features**  
-1. **Shortened Links**: Create concise URLs instantly  
-2. **Profiles**: Personalized dashboard for your links  
-3. **Analytics**: Track clicks, views, and performance insights  
-4. **Data Visualization**: See trends at a glance with interactive charts  
-5. **Smooth User Experience**: Fast, responsive, and beautiful  
+1. **Shortened Links**: Create concise URLs instantly.
+2. **Profiles**: Personalized dashboard for your created links!
+3. **Analytics**: Track clicks, views, and performance insights.  
 
 ---
 
-📊 **Turn links into insights—check it out now!**
-
+📊 **Turn links into insights—check it out now! [Have a look!](https://henryngg.shop/)**
 
 ## 🛠 **Tech Stack & Libraries**  
 
