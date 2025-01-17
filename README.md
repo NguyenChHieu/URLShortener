@@ -1,5 +1,5 @@
 # 🚀 URLShortener - [Have a look!](https://henryngg.shop/)  
-### **A Modern URL Shortener with Analytics and Profiles**  
+### **A Modern URL Shortener with Analytics**  
  
 ---
 
