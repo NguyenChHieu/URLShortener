@@ -16,7 +16,7 @@
 
 ### **Backend**  
 - **Spring Boot MVC**: Controllers, services  
-- **MySQL (local) / AWS (neon.tech)**: Database  
+- **MySQL (local) / AWS-PostgreSQL on [neon.tech](https://neon.tech)**: Database
 - **JWT**: User Authentication  
 - **Dockerized**: Simplified deployment (hosted on **Render.com**; ⏳ first load after a while took ~2 mins)  
 
@@ -38,6 +38,6 @@
 ---
 
 ## 🌐 **Deployment**  
-- **Frontend**: Hosted on **Netlify**  
-- **Backend**: Deployed on **Render.com**
-- **Database**: Cloud-hosted on **neon.tech**
+- **Frontend**: Hosted on **[Netlify](https://netlify.com)**  
+- **Backend**: Deployed on **[render.com](https://render.com)**
+- **Database**: Cloud-hosted on **[neon.tech](https://neon.tech)**
