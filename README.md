@@ -1,4 +1,5 @@
 # 🚀 URLShortener - https://henryngg.shop/
+---
 ### **A Modern URL Shortener with Analytics**  
 
 ![image](https://github.com/user-attachments/assets/40fabd50-a2e5-4d8e-9f4d-e7f44c7cb418)
@@ -10,10 +11,6 @@
 1. **Shortened Links**: Create concise URLs instantly.  
 2. **Profiles**: Personalized dashboard for your created links!  
 3. **Analytics**: Track clicks, views, and performance insights.  
-
----
-
-
 
 ---
 
