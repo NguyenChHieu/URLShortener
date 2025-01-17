@@ -23,7 +23,7 @@
 - **[Spring Boot MVC](https://spring.io/projects/spring-boot)**: Controllers, services  
 - **MySQL (local) / AWS-PostgreSQL on [neon.tech](https://neon.tech)**: Database  
 - **[JWT](https://jwt.io/)**: User Authentication  
-- **[Docker](https://www.docker.com/)**: Simplified deployment (hosted on **[Render.com](https://render.com)**; ⏳ first load after a while took ~2 mins)  
+- **[Docker](https://www.docker.com/)**: Dockerized, simplified deployment; 
 
 ### **Frontend**  
 - **[Vite](https://vitejs.dev/) + [React.js](https://reactjs.org/)**: Lightning-fast development  
@@ -42,7 +42,7 @@
 
 ---
 
-## 🌐 **Deployment**  
+## 🌐 **Deployment** - _⏳Fun fact: first load after a while took ~2 mins!_
 - **Frontend**: Hosted on **[Netlify](https://netlify.com)**  
-- **Backend**: Deployed on **[Render.com](https://render.com)**  
-- **Database**: Cloud-hosted on **[neon.tech](https://neon.tech)**  
+- **Backend**: Deployed on **[Render](https://render.com)**  
+- **Database**: Cloud-hosted on **[Neon](https://neon.tech)**  
