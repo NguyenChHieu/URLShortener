@@ -1,4 +1,4 @@
-# 🚀 URLShortener - [https://henryngg.shop/](https://henryngg.shop/)  
+# 🚀 URLShortener - [Have a look!](https://henryngg.shop/)  
 ### **A Modern URL Shortener with Analytics and Profiles**  
  
 ---
