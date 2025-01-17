@@ -1,7 +1,7 @@
 # 🚀 URLShortener  
 ### **A Modern URL Shortener with Analytics**  
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/40fabd50-a2e5-4d8e-9f4d-e7f44c7cb418)
 
 ---
 
